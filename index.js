@@ -2,11 +2,13 @@ const express = require('express');
 const fs = require('fs'); // <--- Importamos el módulo File System
 const path = require('path'); // Recomendado para manejar rutas de archivos
 const app = express();
+require('dotenv').config();
 const port = process.env.PORT || 3000;
 
 // Define el nombre y la ruta del archivo de log
 const LOG_FILE = path.join(__dirname, 'logs.txt'); 
 
+//Endpoint
 app.get('/', (req, res) => {
     // 1. Obtener la información del cliente
     const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
