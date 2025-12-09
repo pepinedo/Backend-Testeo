@@ -15,7 +15,7 @@ app.set('trust proxy', 'loopback');
 // Endpoint
 app.get('/', (req, res) => {
     // 1. Obtener la información cruda de la solicitud (headers)
-    const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+    const clientIp = req.ip;
     const rawUserAgent = req.headers['user-agent'];
     const refererLink = req.headers.referer || 'Acceso Directo o Desconocido'; 
     const accessedHost = req.headers.host;
