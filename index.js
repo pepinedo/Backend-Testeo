@@ -12,20 +12,10 @@ const LOG_FILE = path.join(__dirname, 'logs.txt');
 //Configuracion para nginx, que confie en el proxy que se conecta desde 127.0.0.1
 app.set('trust proxy', 1);
 
-app.get('/', (req, res) => {
-    // Imprime todos los headers que Express recibe
-    console.log('--- TODOS LOS HEADERS RECIBIDOS ---');
-    console.log(req.headers); 
-    console.log(req.ip);
-    
-    console.log('-----------------------------------');
-    // ... el resto del código
-});
-// Endpoint
-/*
-app.get('/', (req, res) => {
 
-  console.log('XFF Header:', req.headers['x-forwarded-for']);
+// Endpoint
+
+app.get('/', (req, res) => {
 
     // 1. Obtener la información cruda de la solicitud (headers)
     const clientIp = req.ip;
@@ -77,12 +67,10 @@ app.get('/', (req, res) => {
     console.log(logEntry.trim());
     console.log('---------------------------------');
 
-    
-
     // 6. Redireccionar al usuario
     res.status(301).redirect("https://pedropinedocobo.com");
 });
-*/
+
 
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
