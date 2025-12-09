@@ -9,10 +9,15 @@ const port = process.env.PORT || 3000;
 // Define el nombre y la ruta del archivo de log
 const LOG_FILE = path.join(__dirname, 'logs.txt');
 
-// De que proxy confiar
-app.set('trust proxy', 'loopback');
-
+app.get('/', (req, res) => {
+    // Imprime todos los headers que Express recibe
+    console.log('--- TODOS LOS HEADERS RECIBIDOS ---');
+    console.log(req.headers); 
+    console.log('-----------------------------------');
+    // ... el resto del código
+});
 // Endpoint
+/*
 app.get('/', (req, res) => {
 
   console.log('XFF Header:', req.headers['x-forwarded-for']);
@@ -63,13 +68,16 @@ app.get('/', (req, res) => {
     }
 
     // 5. Imprimir el log en la consola
-    console.log('--- Nueva Solicitud Detallada ---');
+    console.log('--- Solicitud Detallada ---');
     console.log(logEntry.trim());
     console.log('---------------------------------');
+
+    
 
     // 6. Redireccionar al usuario
     res.status(301).redirect("https://pedropinedocobo.com");
 });
+*/
 
 app.listen(port, () => {
     console.log(`Servidor escuchando en http://localhost:${port}`);
