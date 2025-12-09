@@ -16,6 +16,8 @@ app.get('/', (req, res) => {
     // Imprime todos los headers que Express recibe
     console.log('--- TODOS LOS HEADERS RECIBIDOS ---');
     console.log(req.headers); 
+    console.log(req.ip);
+    
     console.log('-----------------------------------');
     // ... el resto del código
 });
