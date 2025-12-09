@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 const LOG_FILE = path.join(__dirname, 'logs.txt');
 
 // De que proxy confiar
-app.set('trust proxy', '192.168.1.100');
+app.set('trust proxy', 'loopback');
 
 // Endpoint
 app.get('/', (req, res) => {
