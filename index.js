@@ -14,6 +14,9 @@ app.set('trust proxy', 'loopback');
 
 // Endpoint
 app.get('/', (req, res) => {
+
+  console.log('XFF Header:', req.headers['x-forwarded-for']);
+
     // 1. Obtener la información cruda de la solicitud (headers)
     const clientIp = req.ip;
     const rawUserAgent = req.headers['user-agent'];
@@ -37,12 +40,12 @@ app.get('/', (req, res) => {
     
     const logEntry = 
 `[${timestamp}]
+**DETALLE DEL USUARIO**
 - IP: ${clientIp}
 - Host: ${accessedHost}
 - Referer: ${refererLink}
 - Idioma Preferido: ${acceptLanguage}
--
-- **DETALLE DEL DISPOSITIVO**
+**DETALLE DEL DISPOSITIVO**
 - Navegador: ${browser}
 - S.O.: ${os}
 - Dispositivo: ${device}
