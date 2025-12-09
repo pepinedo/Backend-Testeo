@@ -68,7 +68,7 @@ app.get('/', (req, res) => {
     console.log('---------------------------------');
 
     // 6. Redireccionar al usuario
-    res.status(301).redirect("https://pedropinedocobo.com");
+    res.status(200).json({message: "Hola pablo"});
 });
 
 
