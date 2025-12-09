@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 const LOG_FILE = path.join(__dirname, 'logs.txt');
 
 //Configuracion para nginx, que confie en el proxy que se conecta desde 127.0.0.1
-app.set('trust proxy', 'loopback');
+app.set('trust proxy', 1);
 
 app.get('/', (req, res) => {
     // Imprime todos los headers que Express recibe
